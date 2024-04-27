@@ -34,8 +34,6 @@
 
 If you want to test the results or change the data just clone and enjoy.
 
-
-## Legends
 ## Legends
 
 Mean      : Arithmetic mean of all measurements

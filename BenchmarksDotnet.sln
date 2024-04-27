@@ -16,9 +16,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MockApi", "MockApi", "{94F0
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{E9069FBB-8F61-4020-BE5B-5A3DAECE1A04}"
 	ProjectSection(SolutionItems) = preProject
-		MockApi\config\users.json = MockApi\config\users.json
 		MockApi\config\imposter-config.yaml = MockApi\config\imposter-config.yaml
+		MockApi\config\users.json = MockApi\config\users.json
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mappers", "Mappers\Mappers.csproj", "{879C82CC-D796-4CC0-9CE6-F1F49F96277E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +36,10 @@ Global
 		{308558FF-DF28-4584-8F9D-EC8AB28A386D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{308558FF-DF28-4584-8F9D-EC8AB28A386D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{308558FF-DF28-4584-8F9D-EC8AB28A386D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{879C82CC-D796-4CC0-9CE6-F1F49F96277E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{879C82CC-D796-4CC0-9CE6-F1F49F96277E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{879C82CC-D796-4CC0-9CE6-F1F49F96277E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{879C82CC-D796-4CC0-9CE6-F1F49F96277E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,5 @@
-# Project with some labs and tests
+# Solution with BenchMarks tests
 
-[ReservedKeywords](./ReservedKeyWords)
+[JsonConverter (NewtonSoft) x JsonSerializer (System.Text.Json)](./JsonCerverterxJsonSerializer)
 
-[LinqOperations](./LinqOperations)
-
-[BenchMarks](./Benchmarks)
-
-[SignalR](./SingalR)
-
-[NBench](./NBench)
+[HttpClient x Refit](./HttpClientxRefit)
