@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using BenchmarkDotNet.Attributes;
+using Bogus;
 using Mapster;
 
 namespace Mappers;
@@ -11,6 +12,9 @@ namespace Mappers;
 public class MappersBenchmarks
 {
     IMapper autoMapper;
+    PersonEntity person;
+
+    public MappersBenchmarks() => person = new Faker<PersonEntity>().Generate();
 
     [GlobalSetup(Target = nameof(AutoMapper))]
     public void AutoMapperSetup()
@@ -25,62 +29,36 @@ public class MappersBenchmarks
     }
 
     [Benchmark(Description = "Native")]
-    [Arguments(1, 10)]
-    [Arguments(10, 100)]
-    [Arguments(100, 200)]
-    public void Native(int amountPeople, int amountAccounts)
+    public void Native()
     {
-        var people = PersonEntity.GetPerson(amountPeople, amountAccounts);
-
-        foreach (var person in people)
+        var personDto = new PersonEntityDto
         {
-            var personDto = new PersonEntityDto
+            Id = person.Id,
+            Name = person.Name,
+            Email = person.Email,
+            BirthDate = person.BirthDate,
+            Address = new()
             {
-                Id = person.Id,
-                Name = person.Name,
-                Email = person.Email,
-                BirthDate = person.BirthDate,
-                Address = new()
-                {
-                    Id = person.Address.Id,
-                    City = person.Address.City,
-                    ZipCode = person.Address.ZipCode,
-                    State = person.Address.State,
-                    Country = person.Address.Country,
-                    Neighborhood = person.Address.Neighborhood,
-                },
-                Accounts = person.Accounts.Select(x => new AccountEntityDto()
-                {
-                    Id = x.Id,
-                    AccountType = x.AccountType,
-                    Description = x.Description,
-                    UserId = x.UserId
-                }).ToList()
-            };
-        }
+                Id = person.Address.Id,
+                City = person.Address.City,
+                ZipCode = person.Address.ZipCode,
+                State = person.Address.State,
+                Country = person.Address.Country,
+                Neighborhood = person.Address.Neighborhood,
+            },
+            Accounts = person.Accounts.Select(x => new AccountEntityDto()
+            {
+                Id = x.Id,
+                AccountType = x.AccountType,
+                Description = x.Description,
+                UserId = x.UserId
+            }).ToList()
+        };
     }
 
     [Benchmark(Description = "Mapster")]
-    [Arguments(1, 10)]
-    [Arguments(10, 100)]
-    [Arguments(100, 200)]
-    public void Mapster(int amountPeople, int amountAccounts)
-    {
-        var people = PersonEntity.GetPerson(amountPeople, amountAccounts);
-
-        foreach (var person in people)
-            person.Adapt<PersonEntityDto>();
-    }
+    public void Mapster() => person.Adapt<PersonEntityDto>();
 
     [Benchmark(Description = "AutoMapper")]
-    [Arguments(1, 10)]
-    [Arguments(10, 100)]
-    [Arguments(100, 200)]
-    public void AutoMapper(int amountPeople, int amountAccounts)
-    {
-        var people = PersonEntity.GetPerson(amountPeople, amountAccounts);
-
-        foreach (var person in people)
-            autoMapper.Map<PersonEntityDto>(person);
-    }
+    public void AutoMapper() => autoMapper.Map<PersonEntityDto>(person);
 }
