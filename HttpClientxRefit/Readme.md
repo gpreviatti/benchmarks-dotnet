@@ -8,10 +8,10 @@ BenchmarkDotNet v0.13.12, Windows 11
   [Host]     : .NET 8.0.2 (8.0.224.6711), X64
   DefaultJob : .NET 8.0.2 (8.0.224.6711), X64
 
-| Method                         | Mean     | Error    | StdDev   | Median   | Allocated |
-|------------------------------- |---------:|---------:|---------:|---------:|----------:|
-| 'Send request with HttpClient' | 961.5 us | 23.67 us | 65.59 us | 944.2 us |   3.68 KB |
-| 'Send request with refit'      | 968.3 us | 19.70 us | 55.90 us | 946.9 us |   5.93 KB |
+| Method                       | Mean     | Error    | StdDev   | Median   | Allocated |
+|----------------------------- |---------:|---------:|---------:|---------:|----------:|
+| Send request with HttpClient | 961.5 us | 23.67 us | 65.59 us | 944.2 us |   3.68 KB |
+| Send request with refit      | 968.3 us | 19.70 us | 55.90 us | 946.9 us |   5.93 KB |
 
 ## Hints
 

@@ -91,5 +91,3 @@ Allocated      : Allocated memory per single operation (managed only, inclusive,
 1 ns          : 1 Nanosecond (0.000000001 sec)
 
 1 ms           : 1 Millisecond (0.001 sec)
-
-If you want to test the results or change the data just clone and enjoy.
