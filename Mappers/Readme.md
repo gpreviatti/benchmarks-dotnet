@@ -68,16 +68,28 @@ MappersListsBenchmarks.Native: Default  -> 1 outlier  was  removed (89.84 ms)
 
 ## Legends
 
-Mean      : Arithmetic mean of all measurements
+amountPeople   : Value of the 'amountPeople' parameter
 
-Error     : Half of 99.9% confidence interval
+amountAccounts : Value of the 'amountAccounts' parameter
 
-StdDev    : Standard deviation of all measurements
+Mean           : Arithmetic mean of all measurements
 
-Median    : Value separating the higher half of all measurements (50th percentile)
+Error          : Half of 99.9% confidence interval
 
-Allocated : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+StdDev         : Standard deviation of all measurements
 
-1 us      : 1 Microsecond (0.000001 sec)
+Median         : Value separating the higher half of all measurements (50th percentile)
+
+Gen0           : GC Generation 0 collects per 1000 operations
+
+Gen1           : GC Generation 1 collects per 1000 operations
+
+Gen2           : GC Generation 2 collects per 1000 operations
+
+Allocated      : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+
+1 ns          : 1 Nanosecond (0.000000001 sec)
+
+1 ms           : 1 Millisecond (0.001 sec)
 
 If you want to test the results or change the data just clone and enjoy.
