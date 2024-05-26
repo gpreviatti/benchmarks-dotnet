@@ -38,7 +38,7 @@ public class MappersBenchmarks
     [Benchmark(Description = "Native")]
     public void Native()
     {
-        var personDto = new PersonEntityDto
+        PersonEntityDto personDto = new()
         {
             Id = person.Id,
             Name = person.Name,
