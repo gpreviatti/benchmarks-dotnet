@@ -28,6 +28,13 @@ public class MappersBenchmarks
         autoMapper = new Mapper(config);
     }
 
+    [GlobalSetup(Target = nameof(MapsterLookingForConstructor))]
+    public void MapsterLookingForConstructorSetup()
+    {
+        TypeAdapterConfig.GlobalSettings.Default.MapToConstructor(true);
+        TypeAdapterConfig.GlobalSettings.Default.IgnoreNullValues(true);
+    }
+
     [Benchmark(Description = "Native")]
     public void Native()
     {
@@ -55,6 +62,9 @@ public class MappersBenchmarks
             }).ToList()
         };
     }
+
+    [Benchmark(Description = nameof(MapsterLookingForConstructor))]
+    public void MapsterLookingForConstructor() => person.Adapt<PersonEntityDto>();
 
     [Benchmark(Description = "Mapster")]
     public void Mapster() => person.Adapt<PersonEntityDto>();

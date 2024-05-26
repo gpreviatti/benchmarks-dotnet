@@ -4,6 +4,23 @@ namespace Mappers;
 
 public sealed class PersonEntity
 {
+    public PersonEntity()
+    {
+    }
+
+    public PersonEntity(
+        Guid id, string name, string email, DateTime birthDate,
+        AddressEntity address, List<AccountEntity> accounts
+    )
+    {
+        Id = id;
+        Name = name;
+        Email = email;
+        BirthDate = birthDate;
+        Address = address;
+        Accounts = accounts;
+    }
+
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;

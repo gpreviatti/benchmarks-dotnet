@@ -24,6 +24,13 @@ public class MappersListsBenchmarks
         autoMapper = new Mapper(config);
     }
 
+    [GlobalSetup(Target = nameof(MapsterLookingForConstructor))]
+    public void MapsterLookingForConstructorSetup()
+    {
+        TypeAdapterConfig.GlobalSettings.Default.MapToConstructor(true);
+        TypeAdapterConfig.GlobalSettings.Default.IgnoreNullValues(true);
+    }
+
     [Benchmark(Description = "Native")]
     [Arguments(1, 10)]
     [Arguments(10, 100)]
@@ -60,7 +67,19 @@ public class MappersListsBenchmarks
         }
     }
 
-    [Benchmark(Description = "Mapster")]
+    [Benchmark(Description = nameof(MapsterLookingForConstructor))]
+    [Arguments(1, 10)]
+    [Arguments(10, 100)]
+    [Arguments(100, 200)]
+    public void MapsterLookingForConstructor(int amountPeople, int amountAccounts)
+    {
+        var people = PersonEntity.GetPerson(amountPeople, amountAccounts);
+
+        foreach (var person in people)
+            person.Adapt<PersonEntityDto>();
+    }
+
+    [Benchmark(Description = nameof(Mapster))]
     [Arguments(1, 10)]
     [Arguments(10, 100)]
     [Arguments(100, 200)]
@@ -72,7 +91,7 @@ public class MappersListsBenchmarks
             person.Adapt<PersonEntityDto>();
     }
 
-    [Benchmark(Description = "AutoMapper")]
+    [Benchmark(Description = nameof(AutoMapper))]
     [Arguments(1, 10)]
     [Arguments(10, 100)]
     [Arguments(100, 200)]
