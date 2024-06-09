@@ -7,9 +7,12 @@ Testes libraries
 ## Results of the benchmarks
 
 BenchmarkDotNet v0.13.12, Windows 11 (10.0.22631.3593/23H2/2023Update/SunValley3)
+
 11th Gen Intel Core i5-11400H 2.70GHz, 1 CPU, 12 logical and 6 physical cores
+
 .NET SDK 8.0.301
   [Host]     : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
+
   DefaultJob : .NET 8.0.6 (8.0.624.26715), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
 
 | Method                                    | Mean     | Error    | StdDev   | Median   | Gen0   | Allocated |
@@ -19,19 +22,18 @@ BenchmarkDotNet v0.13.12, Windows 11 (10.0.22631.3593/23H2/2023Update/SunValley3
 | 'Entity Framework Select One'             | 482.0 us |  9.53 us | 15.65 us | 477.3 us | 0.9766 |  10.34 KB |
 | 'Entity Framework Select One No Tracking' | 507.8 us | 17.77 us | 48.94 us | 489.3 us | 0.9766 |  10.91 KB |
 
-### Hints
-Outliers
-  DatabaseBenchmarks.'Dapper Select One With Fields': Default           -> 6 outliers were removed (452.40 us..476.09 us)
-  DatabaseBenchmarks.'Dapper Select One': Default                       -> 9 outliers were removed (522.53 us..765.42 us)
-  DatabaseBenchmarks.'Entity Framework Select One': Default             -> 1 outlier  was  removed (573.85 us)
-  DatabaseBenchmarks.'Entity Framework Select One No Tracking': Default -> 12 outliers were removed (683.25 us..1.01 ms)
-
 ### Legends
   Mean      : Arithmetic mean of all measurements
+
   Error     : Half of 99.9% confidence interval
+
   StdDev    : Standard deviation of all measurements
+
   Median    : Value separating the higher half of all measurements (50th percentile)
+
   Gen0      : GC Generation 0 collects per 1000 operations
+
   Allocated : Allocated memory per single operation (managed only, inclusive, 1KB = 1024B)
+
   1 us      : 1 Microsecond (0.000001 sec)
 
