@@ -1,0 +1,34 @@
+CREATE DATABASE benchmarks
+GO
+
+USE benchmarks
+GO
+
+CREATE TABLE [Address] (
+    Id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+    State NVARCHAR(255),
+    Neighbordhood NVARCHAR(255),
+    Country NVARCHAR(255),
+    City NVARCHAR(255),
+    ZipCode NVARCHAR(50)
+)
+GO
+
+CREATE TABLE Person (
+    Id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+    Name NVARCHAR(255),
+    Email NVARCHAR(255),
+    BirthDate DATETIME,
+    AddressId UNIQUEIDENTIFIER,
+    FOREIGN KEY (AddressId) REFERENCES Address (Id)
+)
+GO
+
+CREATE TABLE [Account] (
+    Id UNIQUEIDENTIFIER DEFAULT NEWID() PRIMARY KEY,
+    Description NVARCHAR(255),
+    AccountType NVARCHAR(255),
+    UserId UNIQUEIDENTIFIER,
+    FOREIGN KEY (UserId) REFERENCES Person (Id)
+)
+GO

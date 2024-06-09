@@ -1,0 +1,26 @@
+version: '3.8'
+
+
+services:
+  ef-sqlserver:
+    image: mcr.microsoft.com/mssql/server
+    container_name: ef-sqlserver
+    environment:
+      SA_PASSWORD: "SqlServer2022!"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
+  mssqltools:
+    image: mcr.microsoft.com/mssql-tools
+    depends_on:
+      - ef-sqlserver
+    volumes:
+      - ./scripts/01-create.sql:/tmp/01-create.sql
+      - ./scripts/02-seed.sql:/tmp/02-seed.sql
+    command: 
+      - /bin/bash 
+      - -c 
+      - |
+        /opt/mssql-tools/bin/sqlcmd -S ef-sqlserver -U sa -P SqlServer2022! -d master -i /tmp/01-create.sql
+        /opt/mssql-tools/bin/sqlcmd -S ef-sqlserver -U sa -P SqlServer2022! -d master -i /tmp/02-seed.sql

@@ -20,7 +20,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{E9069F
 		MockApi\config\users.json = MockApi\config\users.json
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mappers", "Mappers\Mappers.csproj", "{879C82CC-D796-4CC0-9CE6-F1F49F96277E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mappers", "Mappers\Mappers.csproj", "{879C82CC-D796-4CC0-9CE6-F1F49F96277E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFrameworks", "DatabaseFrameworks\DatabaseFrameworks.csproj", "{F830F27A-3E93-4F1F-A5F2-0FD97D6B751D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -40,6 +42,10 @@ Global
 		{879C82CC-D796-4CC0-9CE6-F1F49F96277E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{879C82CC-D796-4CC0-9CE6-F1F49F96277E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{879C82CC-D796-4CC0-9CE6-F1F49F96277E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F830F27A-3E93-4F1F-A5F2-0FD97D6B751D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F830F27A-3E93-4F1F-A5F2-0FD97D6B751D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F830F27A-3E93-4F1F-A5F2-0FD97D6B751D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F830F27A-3E93-4F1F-A5F2-0FD97D6B751D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
