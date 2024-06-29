@@ -21,6 +21,16 @@ public sealed class PersonEntityDto
 
         return _fakerPerson.Generate(amountPeople);
     }
+
+    public static implicit operator PersonEntityDto(PersonEntity person) => new()
+    {
+        Id = person.Id,
+        Name = person.Name,
+        Email = person.Email,
+        BirthDate = person.BirthDate,
+        Address = person.Address,
+        Accounts = [.. person.Accounts]
+    };
 }
 
 public sealed class AddressEntityDto
@@ -38,6 +48,17 @@ public sealed class AddressEntityDto
 
         return _fakerAccount.Generate();
     }
+
+    public static implicit operator AddressEntityDto(AddressEntity entity) => new()
+    {
+        Id = entity.Id,
+        City = entity.City,
+        ZipCode = entity.ZipCode,
+        State = entity.State,
+        Country = entity.Country,
+        Neighborhood = entity.Neighborhood,
+    };
+
 }
 
 public sealed class AccountEntityDto
@@ -53,4 +74,12 @@ public sealed class AccountEntityDto
 
         return _fakerAccount.Generate(amount);
     }
+
+    public static implicit operator AccountEntityDto(AccountEntity entity) => new()
+    {
+        Id = entity.Id,
+        AccountType = entity.AccountType,
+        Description = entity.Description,
+        UserId = entity.UserId
+    };
 }

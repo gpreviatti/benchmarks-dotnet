@@ -102,4 +102,17 @@ public class MappersListsBenchmarks
         foreach (var person in people)
             autoMapper.Map<PersonEntityDto>(person);
     }
+
+    [Benchmark(Description = nameof(ImplicitOperatorMapper))]
+    [Arguments(1, 10)]
+    [Arguments(10, 100)]
+    [Arguments(100, 200)]
+    public void ImplicitOperatorMapper(int amountPeople, int amountAccounts)
+    {
+        var people = PersonEntity.GetPerson(amountPeople, amountAccounts);
+
+        PersonEntityDto dto;
+        foreach (var person in people)
+            dto = person;
+    }
 }

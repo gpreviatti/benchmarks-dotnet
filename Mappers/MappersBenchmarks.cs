@@ -71,4 +71,10 @@ public class MappersBenchmarks
 
     [Benchmark(Description = "AutoMapper")]
     public void AutoMapper() => autoMapper.Map<PersonEntityDto>(person);
+
+    [Benchmark(Description = "ImplicitOperatorMapper")]
+    public void ImplicitOperatorMapper()
+    {
+        PersonEntityDto dto = person;
+    }
 }

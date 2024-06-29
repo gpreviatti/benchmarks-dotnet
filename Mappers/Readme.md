@@ -16,63 +16,59 @@ DefaultJob : .NET 8.0.4 (8.0.424.16909), X64 RyuJIT AVX-512F+CD+BW+DQ+VL+VBMI
 
 | Method                       | Mean      | Error    | StdDev   | Gen0   | Allocated |
 |----------------------------- |----------:|---------:|---------:|-------:|----------:|
-| MapsterLookingForConstructor |  64.88 ns | 1.286 ns | 2.902 ns | 0.0446 |     280 B |
-| Mapster                      |  66.37 ns | 1.615 ns | 4.687 ns | 0.0446 |     280 B |
-| Native                       |  89.93 ns | 1.813 ns | 3.536 ns | 0.0560 |     352 B |
-| AutoMapper                   | 101.56 ns | 2.031 ns | 2.977 ns | 0.0446 |     280 B |
+| ImplicitOperatorMapper       |  41.33 ns | 0.477 ns | 0.398 ns | 0.0446 |     280 B |
+| Mapster                      |  61.49 ns | 1.134 ns | 1.114 ns | 0.0446 |     280 B |
+| MapsterLookingForConstructor |  64.05 ns | 0.649 ns | 0.607 ns | 0.0446 |     280 B |
+| Native                       |  89.90 ns | 1.824 ns | 3.289 ns | 0.0560 |     352 B |
+| AutoMapper                   | 101.46 ns | 2.055 ns | 5.079 ns | 0.0446 |     280 B |
 
 ### Hints
 
 Outliers
 
-MappersBenchmarks.MapsterLookingForConstructor: Default -> 2 outliers were removed (74.52 ns, 75.49 ns)
+MappersBenchmarks.ImplicitOperatorMapper: Default -> 2 outliers were removed (44.34 ns, 44.38 ns)
 
-MappersBenchmarks.Mapster: Default                      -> 3 outliers were removed (79.88 ns..83.38 ns)
-
-MappersBenchmarks.Native: Default                       -> 1 outlier  was  removed (112.52 ns)
+MappersBenchmarks.AutoMapper: Default             -> 3 outliers were removed (119.95 ns..131.19 ns)
 
 ## Mapping lists results
 
 | Method                       | amountPeople | amountAccounts | Mean      | Error     | StdDev    | Median    | Gen0       | Gen1      | Gen2     | Allocated |
 |----------------------------- |------------- |--------------- |----------:|----------:|----------:|----------:|-----------:|----------:|---------:|----------:|
-| MapsterLookingForConstructor | 1            | 10             |  1.253 ms | 0.0109 ms | 0.0085 ms |  1.253 ms |   250.0000 |  246.0938 |        - |    1.5 MB |
-| Mapster                      | 1            | 10             |  1.274 ms | 0.0227 ms | 0.0177 ms |  1.271 ms |   250.0000 |  246.0938 |        - |    1.5 MB |
-| Native                       | 1            | 10             |  1.293 ms | 0.0255 ms | 0.0497 ms |  1.268 ms |   250.0000 |  246.0938 |        - |   1.51 MB |
-| AutoMapper                   | 1            | 10             |  1.401 ms | 0.0281 ms | 0.0806 ms |  1.385 ms |   250.0000 |  246.0938 |        - |   1.51 MB |
-| Native                       | 10           | 100            |  8.023 ms | 0.1491 ms | 0.1245 ms |  8.039 ms |  1406.2500 |  625.0000 |  31.2500 |    8.4 MB |
-| MapsterLookingForConstructor | 10           | 100            |  9.280 ms | 0.4008 ms | 1.1627 ms |  9.177 ms |  1421.8750 |  640.6250 |  31.2500 |   8.39 MB |
-| Mapster                      | 10           | 100            |  9.411 ms | 0.2757 ms | 0.8043 ms |  9.177 ms |  1421.8750 |  640.6250 |  31.2500 |   8.39 MB |
-| AutoMapper                   | 10           | 100            |  9.726 ms | 0.1943 ms | 0.4012 ms |  9.678 ms |  1421.8750 |  625.0000 |  31.2500 |   8.41 MB |
-| MapsterLookingForConstructor | 100          | 200            | 83.670 ms | 1.7074 ms | 4.9536 ms | 83.132 ms | 13333.3333 | 3000.0000 | 333.3333 |  78.52 MB |
-| Native                       | 100          | 200            | 83.711 ms | 1.6645 ms | 4.5285 ms | 83.284 ms | 13333.3333 | 3000.0000 | 333.3333 |  78.55 MB |
-| AutoMapper                   | 100          | 200            | 83.970 ms | 1.6683 ms | 4.4531 ms | 83.977 ms | 13333.3333 | 2666.6667 | 333.3333 |  78.77 MB |
-| Mapster                      | 100          | 200            | 86.039 ms | 1.7039 ms | 4.6356 ms | 85.576 ms | 13500.0000 | 3250.0000 | 500.0000 |  78.52 MB |
+| Native                       | 1            | 10             |  1.218 ms | 0.0240 ms | 0.0257 ms |  1.216 ms |   250.0000 |  246.0938 |        - |   1.51 MB |
+| MapsterLookingForConstructor | 1            | 10             |  1.231 ms | 0.0227 ms | 0.0270 ms |  1.222 ms |   250.0000 |  246.0938 |        - |    1.5 MB |
+| AutoMapper                   | 1            | 10             |  1.258 ms | 0.0240 ms | 0.0295 ms |  1.256 ms |   250.0000 |  246.0938 |        - |   1.51 MB |
+| Mapster                      | 1            | 10             |  1.263 ms | 0.0250 ms | 0.0511 ms |  1.236 ms |   250.0000 |  246.0938 |        - |    1.5 MB |
+| ImplicitOperatorMapper       | 1            | 10             |  1.272 ms | 0.0249 ms | 0.0324 ms |  1.276 ms |   250.0000 |  246.0938 |        - |   1.51 MB |
+| AutoMapper                   | 10           | 100            |  7.140 ms | 0.1415 ms | 0.1983 ms |  7.123 ms |  1375.0000 |  625.0000 |        - |   8.41 MB |
+| ImplicitOperatorMapper       | 10           | 100            |  7.267 ms | 0.1421 ms | 0.2083 ms |  7.302 ms |  1421.8750 |  640.6250 |  31.2500 |    8.4 MB |
+| Mapster                      | 10           | 100            |  7.358 ms | 0.1190 ms | 0.1055 ms |  7.408 ms |  1421.8750 |  640.6250 |  31.2500 |   8.39 MB |
+| MapsterLookingForConstructor | 10           | 100            |  7.479 ms | 0.1432 ms | 0.1862 ms |  7.461 ms |  1421.8750 |  640.6250 |  31.2500 |   8.39 MB |
+| Native                       | 10           | 100            |  7.502 ms | 0.1490 ms | 0.1656 ms |  7.546 ms |  1406.2500 |  625.0000 |  31.2500 |    8.4 MB |
+| MapsterLookingForConstructor | 100          | 200            | 69.329 ms | 1.3406 ms | 1.4900 ms | 69.865 ms | 13400.0000 | 3000.0000 | 400.0000 |  78.52 MB |
+| Native                       | 100          | 200            | 70.346 ms | 1.3498 ms | 1.8020 ms | 69.919 ms | 13500.0000 | 3250.0000 | 500.0000 |  78.55 MB |
+| AutoMapper                   | 100          | 200            | 70.455 ms | 0.6181 ms | 0.5781 ms | 70.276 ms | 13333.3333 | 2666.6667 | 333.3333 |  78.77 MB |
+| Mapster                      | 100          | 200            | 72.118 ms | 1.0477 ms | 0.9800 ms | 72.021 ms | 13500.0000 | 3250.0000 | 500.0000 |  78.52 MB |
+| ImplicitOperatorMapper       | 100          | 200            | 72.336 ms | 0.5422 ms | 0.4233 ms | 72.459 ms | 13500.0000 | 3250.0000 | 500.0000 |  78.54 MB |
 
 ### Hints
 
 Outliers
 
-MappersListsBenchmarks.MapsterLookingForConstructor: Default -> 3 outliers were removed (1.31 ms..1.39 ms)
+MappersListsBenchmarks.Native: Default                       -> 1 outlier  was  removed (1.32 ms)
 
-MappersListsBenchmarks.Mapster: Default                      -> 3 outliers were removed (1.36 ms..1.37 ms)
+MappersListsBenchmarks.MapsterLookingForConstructor: Default -> 2 outliers were removed (1.31 ms, 1.33 ms)
 
-MappersListsBenchmarks.AutoMapper: Default                   -> 5 outliers were removed (1.61 ms..1.81 ms)
+MappersListsBenchmarks.AutoMapper: Default                   -> 2 outliers were removed (1.36 ms, 1.36 ms)
 
-MappersListsBenchmarks.Native: Default                       -> 2 outliers were removed, 3 outliers were detected (7.63 ms, 8.41 ms, 8.46 ms)
+MappersListsBenchmarks.Mapster: Default                      -> 1 outlier  was  removed (7.82 ms)
 
-MappersListsBenchmarks.MapsterLookingForConstructor: Default -> 3 outliers were removed (13.29 ms..13.86 ms)
+MappersListsBenchmarks.MapsterLookingForConstructor: Default -> 1 outlier  was  removed, 2 outliers were detected (6.96 ms, 8.04 ms)
 
-MappersListsBenchmarks.Mapster: Default                      -> 2 outliers were removed (11.90 ms, 12.48 ms)
+MappersListsBenchmarks.Native: Default                       -> 1 outlier  was  removed, 4 outliers were detected (7.04 ms..7.20 ms, 7.99 ms)
 
-MappersListsBenchmarks.AutoMapper: Default                   -> 3 outliers were removed (10.87 ms..11.02 ms)
+MappersListsBenchmarks.MapsterLookingForConstructor: Default -> 2 outliers were removed (74.87 ms, 78.91 ms)
 
-MappersListsBenchmarks.MapsterLookingForConstructor: Default -> 3 outliers were removed (98.38 ms..104.76 ms)
-
-MappersListsBenchmarks.Native: Default                       -> 1 outlier  was  removed (98.95 ms)
-
-MappersListsBenchmarks.AutoMapper: Default                   -> 4 outliers were removed (100.50 ms..109.20 ms)
-
-MappersListsBenchmarks.Mapster: Default                      -> 1 outlier  was  removed (100.83 ms)
+MappersListsBenchmarks.ImplicitOperatorMapper: Default       -> 3 outliers were removed (73.75 ms..80.04 ms)
 
 ## Legends
 
