@@ -22,10 +22,10 @@ public class HttpClientxRefitBenchmarks
 
 
     [Benchmark(Description = "Send request with HttpClient")]
-    public async Task SendRequestWithHttpClient() => 
+    public async Task SendRequestWithHttpClient() =>
         await httpClient!.GetFromJsonAsync<IReadOnlyCollection<User>>("http://localhost:8081/users");
 
     [Benchmark(Description = "Send request with refit")]
-    public async Task SendRequestWithRefit() => 
+    public async Task SendRequestWithRefit() =>
         await refitUsersApi!.GetUsers();
 }

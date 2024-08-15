@@ -69,7 +69,7 @@ public class DeserializeBenchmarks
         JsonConvert.DeserializeObject<List<PersonEntity>>(stream);
     }
 
-    
+
     private static async Task<string> GetJson(object obj)
     {
         using var stream = new MemoryStream();

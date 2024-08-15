@@ -1,8 +1,8 @@
-﻿using System.Data;
-using BenchmarkDotNet.Attributes;
+﻿using BenchmarkDotNet.Attributes;
 using Dapper;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
+using System.Data;
 
 namespace DatabaseFrameworks;
 
@@ -21,7 +21,7 @@ public class DatabaseBenchmarks
     public void Entity_Framework_Select_One_No_Tracking_Setup() => _entityFrameworkDbContext = new();
 
     [GlobalSetup(Target = nameof(Dapper_Select_One))]
-    public void Dapper_Select_One_Setup() 
+    public void Dapper_Select_One_Setup()
         => _dbConnection = new SqlConnection("Server=127.0.0.1,1433;Database=benchmarks;User Id=sa;Password=SqlServer2022!;TrustServerCertificate=true;");
 
     [GlobalSetup(Target = nameof(Dapper_Select_One_With_Fields))]

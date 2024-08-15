@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientxRefit", "HttpClientxRefit\HttpClientxRefit.csproj", "{308558FF-DF28-4584-8F9D-EC8AB28A386D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2E4AFFF8-3196-4DB6-A8EC-BC442A323FE1}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MockApi", "MockApi", "{94F09A0C-0849-4AA6-95F6-B3D8960AC010}"
 	ProjectSection(SolutionItems) = preProject
