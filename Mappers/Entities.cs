@@ -2,11 +2,9 @@
 
 namespace Mappers;
 
-public sealed class PersonEntity
+internal sealed class PersonEntity
 {
-    public PersonEntity()
-    {
-    }
+    public PersonEntity()  { }
 
     public PersonEntity(
         Guid id, string name, string email, DateTime birthDate,
@@ -40,7 +38,7 @@ public sealed class PersonEntity
     }
 }
 
-public sealed class AddressEntity
+internal sealed class AddressEntity
 {
     public Guid Id { get; set; }
     public string State { get; set; } = string.Empty;
@@ -57,7 +55,7 @@ public sealed class AddressEntity
     }
 }
 
-public sealed class AccountEntity
+internal sealed class AccountEntity
 {
     public Guid Id { get; set; }
     public string Description { get; set; } = string.Empty;
@@ -66,8 +64,8 @@ public sealed class AccountEntity
 
     public static List<AccountEntity> GetAccounts(int amount = 1)
     {
-        var _fakerAccount = new Faker<AccountEntity>("pt_BR");
+        var fakerAccount = new Faker<AccountEntity>("pt_BR");
 
-        return _fakerAccount.Generate(amount);
+        return fakerAccount.Generate(amount);
     }
 }

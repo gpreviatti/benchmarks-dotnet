@@ -1,6 +1,6 @@
 ﻿namespace DatabaseFrameworks;
 
-public class Person
+internal class Person
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
@@ -10,7 +10,7 @@ public class Person
     public List<Account> Accounts { get; set; }
 }
 
-public class Address
+internal class Address
 {
     public Guid Id { get; set; }
     public string State { get; set; }
@@ -20,7 +20,7 @@ public class Address
     public string ZipCode { get; set; }
 }
 
-public class Account
+internal class Account
 {
     public Guid Id { get; set; }
     public string Description { get; set; }

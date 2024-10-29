@@ -2,7 +2,7 @@
 
 namespace DatabaseFrameworks;
 
-public class EntityFrameworkDbContext() : DbContext
+internal class EntityFrameworkDbContext() : DbContext
 {
     public DbSet<Person> Person { get; set; }
     public DbSet<Account> Account { get; set; }

@@ -1,7 +1,7 @@
 ﻿using Refit;
 
 namespace HttpClientxRefit;
-public interface IRefitUsersApi
+internal interface IRefitUsersApi
 {
     [Get("/users")]
     Task<IReadOnlyCollection<User>> GetUsers();

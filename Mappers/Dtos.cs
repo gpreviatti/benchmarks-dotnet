@@ -2,24 +2,23 @@
 
 namespace Mappers;
 
-public sealed class PersonEntityDto
+internal sealed class PersonEntityDto
 {
     public Guid Id { get; set; }
     public string Name { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public DateTime BirthDate { get; set; }
-
     public AddressEntityDto Address { get; set; } = new();
     public List<AccountEntityDto> Accounts { get; set; } = new();
 
 
     public static List<PersonEntityDto> GetPerson(int amountPeople, int amountAccounts = 1)
     {
-        var _fakerPerson = new Faker<PersonEntityDto>("pt_BR")
+        var fakerPerson = new Faker<PersonEntityDto>("pt_BR")
             .StrictMode(false)
             .RuleFor(c => c.Accounts, f => AccountEntityDto.GetAccounts(amountAccounts));
 
-        return _fakerPerson.Generate(amountPeople);
+        return fakerPerson.Generate(amountPeople);
     }
 
     public static implicit operator PersonEntityDto(PersonEntity person) => new()
@@ -33,7 +32,7 @@ public sealed class PersonEntityDto
     };
 }
 
-public sealed class AddressEntityDto
+internal sealed class AddressEntityDto
 {
     public Guid Id { get; set; }
     public string State { get; set; } = string.Empty;
@@ -44,9 +43,9 @@ public sealed class AddressEntityDto
 
     public static AddressEntity GetAddress()
     {
-        var _fakerAccount = new Faker<AddressEntity>("pt_BR");
+        var fakerAccount = new Faker<AddressEntity>("pt_BR");
 
-        return _fakerAccount.Generate();
+        return fakerAccount.Generate();
     }
 
     public static implicit operator AddressEntityDto(AddressEntity entity) => new()
@@ -61,7 +60,7 @@ public sealed class AddressEntityDto
 
 }
 
-public sealed class AccountEntityDto
+internal sealed class AccountEntityDto
 {
     public Guid Id { get; set; }
     public string Description { get; set; } = string.Empty;

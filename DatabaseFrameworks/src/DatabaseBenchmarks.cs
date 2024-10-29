@@ -10,8 +10,8 @@ namespace DatabaseFrameworks;
 [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
 public class DatabaseBenchmarks
 {
-    protected EntityFrameworkDbContext? _entityFrameworkDbContext;
-    protected IDbConnection? _dbConnection;
+    private EntityFrameworkDbContext? _entityFrameworkDbContext;
+    private IDbConnection? _dbConnection;
 
     #region Setups
     [GlobalSetup(Target = nameof(Entity_Framework_Select_One))]
@@ -29,14 +29,10 @@ public class DatabaseBenchmarks
         => _dbConnection = new SqlConnection("Server=127.0.0.1,1433;Database=benchmarks;User Id=sa;Password=SqlServer2022!;TrustServerCertificate=true;");
     #endregion
 
-
-
     [Benchmark(Description = "Entity Framework Select One")]
-    public async Task Entity_Framework_Select_One()
-    {
-        await _entityFrameworkDbContext!.Person
-            .FirstOrDefaultAsync(p => p.Name.Equals("Name1"));
-    }
+    public async Task Entity_Framework_Select_One() =>  await _entityFrameworkDbContext!
+        .Person
+        .FirstOrDefaultAsync(p => p.Name.Equals("Name1"));
 
     [Benchmark(Description = "Entity Framework Select One No Tracking")]
     public async Task Entity_Framework_Select_One_No_Tracking()

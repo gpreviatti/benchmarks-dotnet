@@ -2,7 +2,7 @@
 
 namespace JsonCerverterxJsonSerializer;
 
-public class PersonEntity
+internal class PersonEntity
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
@@ -29,7 +29,7 @@ public class PersonEntity
     }
 }
 
-public class AddressEntity
+internal class AddressEntity
 {
     public Guid Id { get; set; }
     public string State { get; set; }
@@ -53,7 +53,7 @@ public class AddressEntity
     }
 }
 
-public class AccountEntity
+internal class AccountEntity
 {
     public Guid Id { get; set; }
     public string Description { get; set; }

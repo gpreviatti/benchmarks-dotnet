@@ -10,22 +10,22 @@ namespace HttpClientxRefit;
 [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
 public class HttpClientxRefitBenchmarks
 {
-    private IRefitUsersApi? refitUsersApi;
-    private HttpClient? httpClient;
+    private IRefitUsersApi? _refitUsersApi;
+    private HttpClient? _httpClient;
 
     [GlobalSetup(Target = nameof(SendRequestWithRefit))]
-    public void SendRequestWithRefitSetup() => refitUsersApi = RestService.For<IRefitUsersApi>("http://localhost:8080");
+    public void SendRequestWithRefitSetup() => _refitUsersApi = RestService.For<IRefitUsersApi>("http://localhost:8080");
 
     [GlobalSetup(Target = nameof(SendRequestWithHttpClient))]
-    public void SendRequestWithHttpClientSetup() => httpClient = new();
+    public void SendRequestWithHttpClientSetup() => _httpClient = new();
 
 
 
     [Benchmark(Description = "Send request with HttpClient")]
     public async Task SendRequestWithHttpClient() =>
-        await httpClient!.GetFromJsonAsync<IReadOnlyCollection<User>>("http://localhost:8081/users");
+        await _httpClient!.GetFromJsonAsync<IReadOnlyCollection<User>>("http://localhost:8081/users");
 
     [Benchmark(Description = "Send request with refit")]
     public async Task SendRequestWithRefit() =>
-        await refitUsersApi!.GetUsers();
+        await _refitUsersApi!.GetUsers();
 }
