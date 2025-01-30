@@ -11,3 +11,5 @@ Simpple solution with some benchmarks for some of the most used libraries and pa
 [Mappers Libraries](./Mappers)
 
 [Database Frameworks](./DatabaseFrameworks)
+
+[Class x Struct x Record](./ClassStructRecord)
