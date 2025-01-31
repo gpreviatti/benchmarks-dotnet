@@ -2,34 +2,37 @@
 
 ## Results Deserialization
 
-
-|                  Method | People | Accounts |       Mean |     Error |    StdDev |     Median |       Gen0 |      Gen1 |      Gen2 | Allocated |
-|------------------------ |------- |--------- |-----------:|----------:|----------:|-----------:|-----------:|----------:|----------:|----------:|
-|   JsonSeriealizer Async |      1 |       10 |   2.315 ms | 0.0420 ms | 0.0328 ms |   2.307 ms |   386.7188 |  167.9688 |         - |   2.34 MB |
-|         JsonSeriealizer |      1 |       10 |   2.349 ms | 0.0453 ms | 0.0719 ms |   2.327 ms |   386.7188 |  164.0625 |         - |   2.33 MB |
-|JsonConvert (NewtonSoft) |      1 |       10 |   2.767 ms | 0.1265 ms | 0.3630 ms |   2.648 ms |   390.6250 |  175.7813 |         - |   2.34 MB |
-|         JsonSeriealizer |     10 |      100 |  20.220 ms | 0.3653 ms | 0.5795 ms |  20.031 ms |  2906.2500 |  750.0000 |  125.0000 |  17.24 MB |
-|   JsonSeriealizer Async |     10 |      100 |  20.404 ms | 0.3832 ms | 0.7565 ms |  20.281 ms |  3031.2500 |  875.0000 |  187.5000 |  17.99 MB |
-|JsonConvert (NewtonSoft) |     10 |      100 |  23.313 ms | 0.4634 ms | 0.4551 ms |  23.395 ms |  3156.2500 |  875.0000 |  218.7500 |   18.5 MB |
-|   JsonSeriealizer Async |    100 |      200 | 205.109 ms | 4.0220 ms | 5.7683 ms | 203.751 ms | 31000.0000 | 7000.0000 | 2500.0000 | 188.33 MB |
-|         JsonSeriealizer |    100 |      200 | 210.885 ms | 4.0777 ms | 5.7164 ms | 210.406 ms | 28000.0000 | 2333.3333 |  333.3333 | 175.21 MB |
-|JsonConvert (NewtonSoft) |    100 |      200 | 233.588 ms | 4.1199 ms | 3.6522 ms | 234.059 ms | 31500.0000 | 6000.0000 | 1500.0000 | 199.87 MB |
-
+| Method                                             | amountPeople | amountAccounts | Mean       | Error     | StdDev     | Gen0       | Gen1      | Gen2      | Allocated |
+|--------------------------------------------------- |------------- |--------------- |-----------:|----------:|-----------:|-----------:|----------:|----------:|----------:|
+| 'Deserialize object with JsonSeriealizer'          | 1            | 10             |   2.114 ms | 0.0408 ms |  0.0419 ms |   382.8125 |  242.1875 |         - |   2.32 MB |
+| 'Deserialize with Protobuffer'                     | 1            | 10             |   2.170 ms | 0.0382 ms |  0.0548 ms |   382.8125 |  234.3750 |         - |   2.32 MB |
+| 'Deserialize object with JsonConvert (NewtonSoft)' | 1            | 10             |   2.172 ms | 0.0401 ms |  0.0535 ms |   382.8125 |  250.0000 |         - |   2.33 MB |
+| 'Deserialize object with JsonSeriealizer Async'    | 1            | 10             |   2.231 ms | 0.0446 ms |  0.0870 ms |   382.8125 |  250.0000 |         - |   2.33 MB |
+| 'Deserialize with Protobuffer'                     | 10           | 100            |  17.430 ms | 0.3406 ms |  0.4307 ms |  2937.5000 |  781.2500 |   93.7500 |  17.22 MB |
+| 'Deserialize object with JsonSeriealizer'          | 10           | 100            |  17.751 ms | 0.3524 ms |  0.6355 ms |  2846.1538 |  692.3077 |   76.9231 |  17.18 MB |
+| 'Deserialize object with JsonSeriealizer Async'    | 10           | 100            |  20.850 ms | 0.4333 ms |  1.2434 ms |  3076.9231 | 1000.0000 |  230.7692 |  17.93 MB |
+| 'Deserialize object with JsonConvert (NewtonSoft)' | 10           | 100            |  21.141 ms | 0.6575 ms |  1.9387 ms |  3166.6667 |  916.6667 |  250.0000 |  18.44 MB |
+| 'Deserialize with Protobuffer'                     | 100          | 200            | 173.368 ms | 3.4526 ms |  5.6728 ms | 29000.0000 | 5500.0000 | 1000.0000 | 174.27 MB |
+| 'Deserialize object with JsonSeriealizer'          | 100          | 200            | 176.887 ms | 2.8846 ms |  4.6582 ms | 27000.0000 | 3000.0000 |         - | 174.65 MB |
+| 'Deserialize object with JsonConvert (NewtonSoft)' | 100          | 200            | 190.851 ms | 4.3196 ms | 12.5321 ms | 31000.0000 | 5000.0000 | 1000.0000 | 199.35 MB |
+| 'Deserialize object with JsonSeriealizer Async'    | 100          | 200            | 193.663 ms | 3.8528 ms |  9.5231 ms | 30000.0000 | 5000.0000 | 2000.0000 | 187.82 MB |
 
 ## Results Serialization
 
-
-|                   Method | People | Accounts |       Mean |     Error |    StdDev |       Gen0 |      Gen1 |      Gen2 | Allocated |
-|------------------------- |------- |--------- |----------- |----------:|----------:|----------:|-----------:|----------:|----------:|
-| JsonConvert (NewtonSoft) |      1 |       10 |   2.436 ms | 0.0469 ms | 0.0502 ms |   386.7188 |  167.9688 |         - |   2.33 MB |
-|     JsonSeriealizerAsync |      1 |       10 |   2.464 ms | 0.0491 ms | 0.0459 ms |   386.7188 |  160.1563 |         - |   2.32 MB |
-|          JsonSeriealizer |      1 |       10 |   2.497 ms | 0.0475 ms | 0.0467 ms |   386.7188 |  164.0625 |         - |   2.32 MB |
-|          JsonSeriealizer |     10 |      100 |  18.933 ms | 0.3575 ms | 0.3825 ms |  2843.7500 |  750.0000 |   93.7500 |  16.91 MB |
-|     JsonSeriealizerAsync |     10 |      100 |  19.262 ms | 0.3795 ms | 0.3898 ms |  2875.0000 |  687.5000 |   93.7500 |  17.04 MB |
-| JsonConvert (NewtonSoft) |     10 |      100 |  19.555 ms | 0.3841 ms | 0.6311 ms |  2906.2500 |  687.5000 |   62.5000 |  17.46 MB |
-|     JsonSeriealizerAsync |    100 |      200 | 185.302 ms | 3.6286 ms | 3.2167 ms | 28000.0000 | 3666.6667 | 1000.0000 |  169.8 MB |
-|          JsonSeriealizer |    100 |      200 | 191.681 ms | 3.7839 ms | 6.5271 ms | 27333.3333 | 2333.3333 |  333.3333 | 168.57 MB |
-| JsonConvert (NewtonSoft) |    100 |      200 | 204.180 ms | 2.7548 ms | 2.5768 ms | 29500.0000 | 4500.0000 | 1000.0000 | 179.41 MB |
+| Method                                           | amountPeople | amountAccounts | Mean       | Error     | StdDev    | Gen0       | Gen1      | Gen2     | Allocated |
+|------------------------------------------------- |------------- |--------------- |-----------:|----------:|----------:|-----------:|----------:|---------:|----------:|
+| 'Serialize object with JsonSeriealizer'          | 1            | 10             |   2.030 ms | 0.0358 ms | 0.0536 ms |   382.8125 |  250.0000 |        - |   2.31 MB |
+| 'Serialize with Protobuffer'                     | 1            | 10             |   2.030 ms | 0.0404 ms | 0.0807 ms |   382.8125 |  242.1875 |        - |   2.31 MB |
+| 'Serialize object with JsonSeriealizerAsync'     | 1            | 10             |   2.030 ms | 0.0403 ms | 0.0565 ms |   382.8125 |  242.1875 |        - |   2.31 MB |
+| 'Serialize object with JsonConvert (NewtonSoft)' | 1            | 10             |   2.094 ms | 0.0406 ms | 0.0866 ms |   382.8125 |  257.8125 |        - |   2.32 MB |
+| 'Serialize with Protobuffer'                     | 10           | 100            |  16.758 ms | 0.3340 ms | 0.8131 ms |  2857.1429 |  642.8571 |  71.4286 |  16.95 MB |
+| 'Serialize object with JsonConvert (NewtonSoft)' | 10           | 100            |  16.776 ms | 0.3253 ms | 0.3995 ms |  2923.0769 |  769.2308 |  76.9231 |  17.41 MB |
+| 'Serialize object with JsonSeriealizerAsync'     | 10           | 100            |  16.835 ms | 0.2353 ms | 0.2201 ms |  2875.0000 |  750.0000 |  93.7500 |  16.99 MB |
+| 'Serialize object with JsonSeriealizer'          | 10           | 100            |  16.940 ms | 0.3203 ms | 0.7422 ms |  2843.7500 |  750.0000 |  93.7500 |  16.85 MB |
+| 'Serialize object with JsonSeriealizerAsync'     | 100          | 200            | 157.552 ms | 2.9680 ms | 3.1757 ms | 27500.0000 | 3000.0000 | 500.0000 |  169.3 MB |
+| 'Serialize object with JsonSeriealizer'          | 100          | 200            | 158.790 ms | 1.4767 ms | 1.3091 ms | 27000.0000 | 3000.0000 |        - | 168.04 MB |
+| 'Serialize with Protobuffer'                     | 100          | 200            | 159.209 ms | 2.2055 ms | 1.9551 ms | 27000.0000 | 3000.0000 |        - | 169.09 MB |
+| 'Serialize object with JsonConvert (NewtonSoft)' | 100          | 200            | 165.813 ms | 3.1189 ms | 5.2961 ms | 28000.0000 | 3000.0000 |        - | 178.89 MB |
 
 
 If you want to test the results or change the data just clone and enjoy.

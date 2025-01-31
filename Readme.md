@@ -4,7 +4,7 @@ Simpple solution with some benchmarks for some of the most used libraries and pa
 
 ## Results
 
-[JsonConverter (NewtonSoft) x JsonSerializer (System.Text.Json)](./JsonCerverterxJsonSerializer)
+[JsonConverter (NewtonSoft) x JsonSerializer (System.Text.Json) x Protobuffer (protobuf-net)](./JsonCerverterxJsonSerializerxProtobuffer)
 
 [HttpClient x Refit](./HttpClientxRefit)
 
