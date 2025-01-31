@@ -18,7 +18,7 @@ public class DeserializeBenchmarks
     [Arguments(1, 10)]
     [Arguments(10, 100)]
     [Arguments(100, 200)]
-    public async Task DeserializeWithJsonSerializer(int amountPeople, int amountAccounts)
+    public async Task<List<PersonEntity>> DeserializeWithJsonSerializer(int amountPeople, int amountAccounts)
     {
         var person = PersonEntity.GetPerson(amountPeople, amountAccounts);
 
@@ -30,14 +30,14 @@ public class DeserializeBenchmarks
 
         var stream = await stringContent.ReadAsStreamAsync();
 
-        await System.Text.Json.JsonSerializer.DeserializeAsync<List<PersonEntity>>(stream);
+        return await System.Text.Json.JsonSerializer.DeserializeAsync<List<PersonEntity>>(stream);
     }
 
     [Benchmark(Description = "Deserialize object with JsonSeriealizer Async")]
     [Arguments(1, 10)]
     [Arguments(10, 100)]
     [Arguments(100, 200)]
-    public async Task DeserializeWithJsonSerializerAsync(int amountPeople, int amountAccounts)
+    public async Task<List<PersonEntity>> DeserializeWithJsonSerializerAsync(int amountPeople, int amountAccounts)
     {
         var person = PersonEntity.GetPerson(amountPeople, amountAccounts);
 
@@ -47,14 +47,14 @@ public class DeserializeBenchmarks
 
         var stream = await stringContent.ReadAsStreamAsync();
 
-        await System.Text.Json.JsonSerializer.DeserializeAsync<List<PersonEntity>>(stream);
+        return await System.Text.Json.JsonSerializer.DeserializeAsync<List<PersonEntity>>(stream);
     }
 
     [Benchmark(Description = "Deserialize object with JsonConvert (NewtonSoft)")]
     [Arguments(1, 10)]
     [Arguments(10, 100)]
     [Arguments(100, 200)]
-    public async Task DeserializeWithJsonConvert(int amountPeople, int amountAccounts)
+    public async Task<List<PersonEntity>?> DeserializeWithJsonConvert(int amountPeople, int amountAccounts)
     {
         var person = PersonEntity.GetPerson(amountPeople, amountAccounts);
 
@@ -66,7 +66,24 @@ public class DeserializeBenchmarks
 
         var stream = await stringContent.ReadAsStringAsync();
 
-        JsonConvert.DeserializeObject<List<PersonEntity>>(stream);
+        return JsonConvert.DeserializeObject<List<PersonEntity>>(stream);
+    }
+
+    [Benchmark(Description = "Deserialize with Protobuffer")]
+    [Arguments(1, 10)]
+    [Arguments(10, 100)]
+    [Arguments(100, 200)]
+    public List<PersonProto> DeserializeWithProtobuffer(int amountPeople, int amountAccounts)
+    {
+        var person = PersonProto.GetPerson(amountPeople, amountAccounts);
+
+        using var stream = new MemoryStream();
+        ProtoBuf.Serializer.Serialize(stream, person);
+
+        var arrayBytes = stream.ToArray();
+
+        using var memoryStream = new MemoryStream(arrayBytes);
+        return ProtoBuf.Serializer.Deserialize<List<PersonProto>>(memoryStream);
     }
 
 

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonCerverterxJsonSerializer", "JsonCerverterxJsonSerializer\JsonCerverterxJsonSerializer.csproj", "{723DCEFD-E67E-44B1-80C0-234965C1C4BA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JsonCerverterxJsonSerializerxProtobuffer", "JsonCerverterxJsonSerializerxProtobuffer\JsonCerverterxJsonSerializerxProtobuffer.csproj", "{723DCEFD-E67E-44B1-80C0-234965C1C4BA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "HttpClientxRefit", "HttpClientxRefit\HttpClientxRefit.csproj", "{308558FF-DF28-4584-8F9D-EC8AB28A386D}"
 EndProject
