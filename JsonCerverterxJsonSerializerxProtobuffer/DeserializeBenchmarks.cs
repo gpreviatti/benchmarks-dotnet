@@ -1,9 +1,10 @@
 ﻿using BenchmarkDotNet.Attributes;
+using Google.Protobuf;
 using Newtonsoft.Json;
 using System.Text;
 using System.Text.Json;
 
-namespace JsonCerverterxJsonSerializer;
+namespace JsonCerverterxJsonSerializerxProtobuffer;
 
 [MemoryDiagnoser]
 [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
@@ -69,11 +70,11 @@ public class DeserializeBenchmarks
         return JsonConvert.DeserializeObject<List<PersonEntity>>(stream);
     }
 
-    [Benchmark(Description = "Deserialize with Protobuffer")]
+    [Benchmark(Description = "Deserialize with Protobuffer-net")]
     [Arguments(1, 10)]
     [Arguments(10, 100)]
     [Arguments(100, 200)]
-    public List<PersonProto> DeserializeWithProtobuffer(int amountPeople, int amountAccounts)
+    public List<PersonProto> DeserializeWithProtobufferNet(int amountPeople, int amountAccounts)
     {
         var person = PersonProto.GetPerson(amountPeople, amountAccounts);
 
@@ -84,6 +85,42 @@ public class DeserializeBenchmarks
 
         using var memoryStream = new MemoryStream(arrayBytes);
         return ProtoBuf.Serializer.Deserialize<List<PersonProto>>(memoryStream);
+    }
+
+    [Benchmark(Description = "Deserialize with Protobuffer")]
+    [Arguments(1, 10)]
+    [Arguments(10, 100)]
+    [Arguments(100, 200)]
+    public PeopleProtoFile DeserializeWithProtobuffer(int amountPeople, int amountAccounts)
+    {
+        var people = new PeopleProtoFile();
+        for (int i = 0; i < amountPeople; i++)
+        {
+            List<AccountProtoFile> accounts = [];
+            for (int j = 0; j < amountAccounts; j++)
+                accounts.Add(new()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    AccountType = "Checking",
+                    Description = "Checking account",
+                    UserId = Guid.NewGuid().ToString(),
+                });
+            var person = new PersonProtoFile
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = "John Doe",
+                Email = "johndoe@email.com",
+                BirthDate = "0001-01-01"
+            };
+
+            person.Accounts.Add(accounts);
+            people.Persons.Add(person);
+        }
+
+        var peopleByte = people.ToByteArray();
+
+        using var memoryStream = new MemoryStream(peopleByte);
+        return PeopleProtoFile.Parser.ParseFrom(memoryStream);
     }
 
 

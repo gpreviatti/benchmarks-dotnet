@@ -1,6 +1,6 @@
 ﻿using Bogus;
 
-namespace JsonCerverterxJsonSerializer;
+namespace JsonCerverterxJsonSerializerxProtobuffer;
 
 public class PersonEntity
 {

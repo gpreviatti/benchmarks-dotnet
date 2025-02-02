@@ -3,7 +3,7 @@ using Google.Protobuf;
 using Newtonsoft.Json;
 using System.Text.Json;
 
-namespace JsonCerverterxJsonSerializer;
+namespace JsonCerverterxJsonSerializerxProtobuffer;
 
 [MemoryDiagnoser]
 [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
@@ -51,11 +51,11 @@ public class SerializeBenchmarks
         return JsonConvert.SerializeObject(person);
     }
 
-    [Benchmark(Description = "Serialize with Protobuffer")]
+    [Benchmark(Description = "Serialize with Protobuffer-net")]
     [Arguments(1, 10)]
     [Arguments(10, 100)]
     [Arguments(100, 200)]
-    public byte[] SerializeWithProtobuffer(int amountPeople, int amountAccounts)
+    public byte[] SerializeWithProtobufferNet(int amountPeople, int amountAccounts)
     {
         var person = PersonProto.GetPerson(amountPeople, amountAccounts);
 
@@ -63,5 +63,38 @@ public class SerializeBenchmarks
         ProtoBuf.Serializer.Serialize(stream, person);
 
         return stream.ToArray();
+    }
+
+    [Benchmark(Description = "Serialize with Protobuffer")]
+    [Arguments(1, 10)]
+    [Arguments(10, 100)]
+    [Arguments(100, 200)]
+    public byte[] SerializeWithProtobuffer(int amountPeople, int amountAccounts)
+    {
+        var people = new PeopleProtoFile();
+        for (int i = 0; i < amountPeople; i++)
+        {
+            List<AccountProtoFile> accounts = [];
+            for (int j = 0; j < amountAccounts; j++)
+                accounts.Add(new()
+                {
+                    Id = Guid.NewGuid().ToString(),
+                    AccountType = "Checking",
+                    Description = "Checking account",
+                    UserId = Guid.NewGuid().ToString(),
+                });
+            var person = new PersonProtoFile
+            {
+                Id = Guid.NewGuid().ToString(),
+                Name = "John Doe",
+                Email = "johndoe@email.com",
+                BirthDate = "0001-01-01"
+            };
+
+            person.Accounts.Add(accounts);
+            people.Persons.Add(person);
+        }
+
+        return people.ToByteArray();
     }
 }

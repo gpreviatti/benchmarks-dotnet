@@ -1,7 +1,7 @@
 ﻿using Bogus;
 using ProtoBuf;
 
-namespace JsonCerverterxJsonSerializer;
+namespace JsonCerverterxJsonSerializerxProtobuffer;
 
 [ProtoContract]
 public class PersonProto

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package JsonCerverterxJsonSerializerxProtobuffer;
+
+message PeopleProtoFile {
+    repeated PersonProtoFile persons = 1;
+}
+
+message PersonProtoFile {
+    string id = 1;
+    string name = 2;
+    string email = 3;
+    string birthDate = 4;
+    AddressProtoFile address = 5;
+    repeated AccountProtoFile accounts = 6;
+}
+
+message AddressProtoFile {
+    string id = 1;
+    string state = 2;
+    string neighbordhood = 3;
+    string country = 4;
+    string city = 5;
+    string zipCode = 6;
+}
+
+message AccountProtoFile {
+    string id = 1;
+    string description = 2;
+    string accountType = 3;
+    string userId = 4;
+}
