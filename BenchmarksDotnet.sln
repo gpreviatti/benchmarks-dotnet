@@ -28,7 +28,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mappers", "Mappers\Mappers.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseFrameworks", "DatabaseFrameworks\DatabaseFrameworks.csproj", "{F830F27A-3E93-4F1F-A5F2-0FD97D6B751D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassStructRecord", "ClassStructRecord\ClassStructRecord.csproj", "{B01788A6-B3DD-4293-8610-C91B6497C349}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassStructRecord", "ClassStructRecord\ClassStructRecord.csproj", "{B01788A6-B3DD-4293-8610-C91B6497C349}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReferencexValue", "ReferencexValue\ReferencexValue.csproj", "{2B77383A-4CEB-4DD2-8E16-AA55B0851426}"
 EndProject
