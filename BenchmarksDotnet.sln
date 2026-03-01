@@ -32,7 +32,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassStructRecord", "ClassS
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReferencexValue", "ReferencexValue\ReferencexValue.csproj", "{2B77383A-4CEB-4DD2-8E16-AA55B0851426}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListsAndSpans", "ListsAndSpans\ListsAndSpans.csproj", "{52F20BA3-F0F6-482B-B947-CE43F143B09A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ListsAndSpans", "ListsAndSpans\ListsAndSpans.csproj", "{52F20BA3-F0F6-482B-B947-CE43F143B09A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
