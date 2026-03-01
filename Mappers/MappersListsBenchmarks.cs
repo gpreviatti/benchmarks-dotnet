@@ -10,7 +10,7 @@ namespace Mappers;
 [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
 public class MappersListsBenchmarks
 {
-    IMapper autoMapper;
+    IMapper? autoMapper;
 
     [GlobalSetup(Target = nameof(AutoMapper))]
     public void AutoMapperSetup()
@@ -100,7 +100,7 @@ public class MappersListsBenchmarks
         var people = PersonEntity.GetPerson(amountPeople, amountAccounts);
 
         foreach (var person in people)
-            autoMapper.Map<PersonEntityDto>(person);
+            autoMapper?.Map<PersonEntityDto>(person);
     }
 
     [Benchmark(Description = nameof(ImplicitOperatorMapper))]

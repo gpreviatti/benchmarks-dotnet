@@ -5,13 +5,13 @@ namespace JsonCerverterxJsonSerializerxProtobuffer;
 public class PersonEntity
 {
     public Guid Id { get; set; }
-    public string Name { get; set; }
-    public string Email { get; set; }
+    public string Name { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
     public DateTime BirthDate { get; set; }
 
 
-    public AddressEntity Address { get; set; }
-    public List<AccountEntity> Accounts { get; set; }
+    public AddressEntity Address { get; set; } = new AddressEntity();
+    public List<AccountEntity> Accounts { get; set; } = [];
 
 
     public static List<PersonEntity> GetPerson(int amountPeople, int amountAccounts = 1)
@@ -32,11 +32,11 @@ public class PersonEntity
 public class AddressEntity
 {
     public Guid Id { get; set; }
-    public string State { get; set; }
-    public string Neighbordhood { get; set; }
-    public string Country { get; set; }
-    public string City { get; set; }
-    public string ZipCode { get; set; }
+    public string State { get; set; } = string.Empty;
+    public string Neighbordhood { get; set; } = string.Empty;
+    public string Country { get; set; } = string.Empty;
+    public string City { get; set; } = string.Empty;
+    public string ZipCode { get; set; } = string.Empty;
 
     public static AddressEntity GetAddress()
     {
@@ -56,8 +56,8 @@ public class AddressEntity
 public class AccountEntity
 {
     public Guid Id { get; set; }
-    public string Description { get; set; }
-    public string AccountType { get; set; }
+    public string Description { get; set; } = string.Empty;
+    public string AccountType { get; set; } = string.Empty;
     public Guid UserId { get; set; }
 
     public static List<AccountEntity> GetAccounts(int amount = 1)
