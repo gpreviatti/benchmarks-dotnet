@@ -1,4 +1,4 @@
-﻿
+
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32929.385
@@ -26,7 +26,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "config", "config", "{E9069F
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mappers", "Mappers\Mappers.csproj", "{879C82CC-D796-4CC0-9CE6-F1F49F96277E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatabaseFrameworks", "DatabaseFrameworks\DatabaseFrameworks.csproj", "{F830F27A-3E93-4F1F-A5F2-0FD97D6B751D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatabaseFrameworks", "DatabaseFrameworks\DatabaseFrameworks.csproj", "{F830F27A-3E93-4F1F-A5F2-0FD97D6B751D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassStructRecord", "ClassStructRecord\ClassStructRecord.csproj", "{B01788A6-B3DD-4293-8610-C91B6497C349}"
 EndProject
