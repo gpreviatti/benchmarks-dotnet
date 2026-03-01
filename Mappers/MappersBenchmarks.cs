@@ -11,7 +11,7 @@ namespace Mappers;
 [Orderer(BenchmarkDotNet.Order.SummaryOrderPolicy.FastestToSlowest)]
 public class MappersBenchmarks
 {
-    IMapper autoMapper;
+    IMapper? autoMapper;
     PersonEntity person;
 
     public MappersBenchmarks() => person = new Faker<PersonEntity>().Generate();
@@ -70,7 +70,7 @@ public class MappersBenchmarks
     public void Mapster() => person.Adapt<PersonEntityDto>();
 
     [Benchmark(Description = "AutoMapper")]
-    public void AutoMapper() => autoMapper.Map<PersonEntityDto>(person);
+    public void AutoMapper() => autoMapper?.Map<PersonEntityDto>(person);
 
     [Benchmark(Description = "ImplicitOperatorMapper")]
     public void ImplicitOperatorMapper()

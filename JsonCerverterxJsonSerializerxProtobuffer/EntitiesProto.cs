@@ -9,17 +9,17 @@ public class PersonProto
     [ProtoMember(1)]
     public Guid Id { get; set; }
     [ProtoMember(2)]
-    public string Name { get; set; }
+    public string Name { get; set; } = string.Empty;
     [ProtoMember(3)]
-    public string Email { get; set; }
+    public string Email { get; set; } = string.Empty;
     [ProtoMember(4)]
     public DateTime BirthDate { get; set; }
 
     [ProtoMember(5)]
-    public AddressProto Address { get; set; }
+    public AddressProto Address { get; set; } = new AddressProto();
 
     [ProtoMember(6)]
-    public List<AccountProto> Accounts { get; set; }
+    public List<AccountProto> Accounts { get; set; } = [];
 
 
     public static List<PersonProto> GetPerson(int amountPeople, int amountAccounts = 1)
@@ -44,19 +44,19 @@ public class AddressProto
     public Guid Id { get; set; }
 
     [ProtoMember(2)]
-    public string State { get; set; }
+    public string State { get; set; } = string.Empty;
 
     [ProtoMember(3)]
-    public string Neighbordhood { get; set; }
+    public string Neighbordhood { get; set; } = string.Empty;
 
     [ProtoMember(4)]
-    public string Country { get; set; }
+    public string Country { get; set; } = string.Empty;
 
     [ProtoMember(5)]
-    public string City { get; set; }
+    public string City { get; set; } = string.Empty;
 
     [ProtoMember(6)]
-    public string ZipCode { get; set; }
+    public string ZipCode { get; set; } = string.Empty;
 
     public static AddressProto GetAddress()
     {
@@ -80,10 +80,10 @@ public class AccountProto
     public Guid Id { get; set; }
 
     [ProtoMember(2)]
-    public string Description { get; set; }
+    public string Description { get; set; } = string.Empty;
 
     [ProtoMember(3)]
-    public string AccountType { get; set; }
+    public string AccountType { get; set; } = string.Empty;
 
     [ProtoMember(4)]
     public Guid UserId { get; set; }

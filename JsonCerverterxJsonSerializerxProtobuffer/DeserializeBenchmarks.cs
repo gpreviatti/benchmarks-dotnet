@@ -19,7 +19,7 @@ public class DeserializeBenchmarks
     [Arguments(1, 10)]
     [Arguments(10, 100)]
     [Arguments(100, 200)]
-    public async Task<List<PersonEntity>> DeserializeWithJsonSerializer(int amountPeople, int amountAccounts)
+    public async Task<List<PersonEntity>?> DeserializeWithJsonSerializer(int amountPeople, int amountAccounts)
     {
         var person = PersonEntity.GetPerson(amountPeople, amountAccounts);
 
@@ -38,7 +38,7 @@ public class DeserializeBenchmarks
     [Arguments(1, 10)]
     [Arguments(10, 100)]
     [Arguments(100, 200)]
-    public async Task<List<PersonEntity>> DeserializeWithJsonSerializerAsync(int amountPeople, int amountAccounts)
+    public async Task<List<PersonEntity>?> DeserializeWithJsonSerializerAsync(int amountPeople, int amountAccounts)
     {
         var person = PersonEntity.GetPerson(amountPeople, amountAccounts);
 
